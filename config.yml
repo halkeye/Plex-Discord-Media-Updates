@@ -10,7 +10,7 @@ plex_discord_media_updates:
     uptime_status: ""
     
     # The discord webhook URL that will be used if not in testing mode (i.e. if testing_mode is set to False)
-    webhook: "$WEBHOOK_URL"
+    webhook: "$DISCORD_URL"
     
     # Media added since this long ago will be listed. 
     # FORMAT: "1m", "1h", "1d", "1w" respectively correspond to 1 minute, 1 hour, 1 day, 1 week.
