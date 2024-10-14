@@ -70,6 +70,7 @@ start_time = int(time.time())
 os.environ["PLEX_URL"] = os.getenv("PLEX_URL", "https://localhost:32400")
 os.environ["PLEX_TOKEN"] = os.getenv("PLEX_TOKEN", "XXXXXXXXXXXXXXXXXXXXX")
 os.environ["DISCORD_URL"] = os.getenv("DISCORD_URL", "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+os.environ["LOOPBACK_PERIOD"] = os.getenv("LOOPBACK_PERIOD", "24h")
 
 # Setting variables from config file
 with open(os.getenv("CONFIG_FILE", Path(__file__).with_name("config.yml")), encoding="utf-8") as file:

@@ -1,6 +1,6 @@
 plex:
-    url: "https://localhost:32400"
-    token: "XXXXXXXXXXXXXXXXXXXXX"
+    url: "$PLEX_URL"
+    token: "$PLEX_TOKEN"
     libraries:
         movies: Movies
         shows: TV Shows
@@ -10,11 +10,11 @@ plex_discord_media_updates:
     uptime_status: ""
     
     # The discord webhook URL that will be used if not in testing mode (i.e. if testing_mode is set to False)
-    webhook: "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    webhook: "$WEBHOOK_URL"
     
     # Media added since this long ago will be listed. 
     # FORMAT: "1m", "1h", "1d", "1w" respectively correspond to 1 minute, 1 hour, 1 day, 1 week.
-    lookback_period: "24h"
+    lookback_period: "$LOOPBACK_PERIOD"
     
     # Skipped libraries will not be scanned or included in the webhook message
     skip_libraries:
