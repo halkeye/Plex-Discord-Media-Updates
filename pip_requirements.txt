@@ -1,3 +1,0 @@
-dhooks
-plexapi
-pyyaml

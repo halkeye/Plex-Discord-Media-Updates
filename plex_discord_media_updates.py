@@ -4,6 +4,7 @@ import os
 import requests
 import time
 import yaml
+from envsubst import envsubst
 from collections import Counter
 from dhooks import Webhook, Embed
 from pathlib import Path
@@ -40,10 +41,10 @@ of media may be cut off.
 DEPENDENCIES
 
 This script requires Python 3, along with the Python modules outlined in
-the associated "pip_requirements.txt" file. The modules can be installed by
-executing the command in the same folder as pip_requirements.txt:
+the associated "requirements.txt" file. The modules can be installed by
+executing the command in the same folder as requirements.txt:
 
-pip install -r pip_requirements.txt
+pip install -r requirements.txt
 ------------------------------------------------------------------------------
 CHANGELOG
 ~ v1.3 - 2022-05-20
@@ -66,9 +67,14 @@ message would simply fail and not get sent.
 '''
 start_time = int(time.time())
 
+os.environ["PLEX_URL"] = os.getenv("PLEX_URL", "https://localhost:32400")
+os.environ["PLEX_TOKEN"] = os.getenv("PLEX_TOKEN", "XXXXXXXXXXXXXXXXXXXXX")
+os.environ["DISCORD_URL"] = os.getenv("DISCORD_URL", "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
 # Setting variables from config file
-with open(Path(__file__).with_name(os.getenv("CONFIG_FILE", "config.yml")), encoding="utf-8") as file:
-    config = yaml.safe_load(file)
+with open(os.getenv("CONFIG_FILE", Path(__file__).with_name("config.yml")), encoding="utf-8") as file:
+    config = yaml.safe_load(envsubst(file.read()))
+
 script_config = config["plex_discord_media_updates"]
 try:
     testing_mode = script_config["testing_mode"]

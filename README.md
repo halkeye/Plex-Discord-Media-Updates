@@ -28,9 +28,9 @@ Notice that lists that are too long will be automatically truncated and an addit
 
 # Prerequisites
 
-This script requires Python 3, as well as the python modules outlined in `pip_requirements.txt`. From the same folder as this file, the modules can be installed via the command:
+This script requires Python 3, as well as the python modules outlined in `requirements.txt`. From the same folder as this file, the modules can be installed via the command:
 
-`pip3 install -r pip_requirements.txt`
+`pip3 install -r requirements.txt`
 
 
 # Configuration

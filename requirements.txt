@@ -1,0 +1,4 @@
+dhooks==1.1.4
+PlexAPI==4.15.16
+PyYAML==6.0.2
+envsubst==0.1.5
