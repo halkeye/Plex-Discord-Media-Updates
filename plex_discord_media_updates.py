@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
+import os
 import requests
-import sys
 import time
 import yaml
 from collections import Counter
@@ -67,7 +67,7 @@ message would simply fail and not get sent.
 start_time = int(time.time())
 
 # Setting variables from config file
-with open(Path(__file__).with_name("config.yml"), encoding="utf-8") as file:
+with open(Path(__file__).with_name(os.getenv("CONFIG_FILE", "config.yml")), encoding="utf-8") as file:
     config = yaml.safe_load(file)
 script_config = config["plex_discord_media_updates"]
 try:
